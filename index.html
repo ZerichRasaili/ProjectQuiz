@@ -1,19 +1,29 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Arisa M</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="quizbox">
     <h1>Welcome To Our Quiz</h1>
-    <div class = "quizbox">
-        <h1>A Super Awesome Title!!</h1>
-        <p>A SUPER AWESOME DESCRIPTION OF OUR QUIZ WAHOOOOOOOOOOO!!!!!! dont worry we'll edit all of this stuff later friends</p>
-        <button id = "start">Start</button>
-        <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    </div>
+    <p>A SUPER AWESOME DESCRIPTION OF OUR QUIZ WAHOOOOOOOOOOO!!!!!!</p>
+    <button id="start">Start Quiz</button>
     <h3>Created By: Names go here</h3>
-    <script src="script.js"></script>
+  </div>
+
+  <div id="quiz-container" style="display: none;">
+    <div id="question-box"></div>
+    <button id="next" style="display: none;">Next</button>
+  </div>
+
+  <div id="result" style="margin-top: 20px; font-size: 24px;"></div>
+
+  
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html
