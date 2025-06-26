@@ -1,19 +1,81 @@
 body{
-    background-color: darkolivegreen;
+    background-color: #8BAF97;
     text-align: center;
 }
 
+/* welcome page */
+
 .quizbox{
-    background-color:beige;
-    border: 2px dashed rgb(82, 148, 112);
-    border-radius: 5;
-    width: 700px;
+    background-color:#D1D9CE;
+    border: 5px solid #5B8674 ;
+    border-radius: 15px;
+    width: 500px;
     height: 500px;
     margin-left:auto;
     margin-right: auto;
+    margin-top: 30px;
     padding: 1em;
 }
 
-h1 {
-  font-family: 'Bangers', cursive;
+h1, h3 {
+  /* font-family: 'Bangers', cursive; */
+  font-family: 'Acme', sans-serif;
+  color: #3E5B5E;
+}
+
+h3{
+  color: white;
+  font-weight: normal;
+}
+
+p{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 200;
+  font-size: 14px;
+  padding: 0px 10px 0px 10px;
+}
+
+.startprompt{
+  color:#3E5B5E;
+  font-size: 20px;
+  font-family: 'Acme', sans-serif;
+  text-decoration: underline;
+}
+
+img{
+  width: 300px;
+  height: 200px;
+}
+
+#start{
+  background-color:#8BAF97;
+  transition: 0.2s ease, color 0.2s ease;
+  width: 100px;
+  height: 60px;
+  border: solid 3px #3E5B5E;
+  border-radius: 5px;
+  font-family: 'Acme', sans-serif;
+  font-size: 20px;
+  font-weight: 20;
+  color: white;
+}
+
+#start:hover{
+  background-color: white;
+  color:#8BAF97;
+  border: solid 3px #8BAF97;
+}
+
+
+/* questions */
+#quiz-container{
+  background-color:#D1D9CE;
+  border: 5px solid #5B8674 ;
+  border-radius: 15px;
+  width: 500px;
+  height: 500px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 1em;
 }
