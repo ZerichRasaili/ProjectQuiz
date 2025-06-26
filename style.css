@@ -72,10 +72,33 @@ img{
   background-color:#D1D9CE;
   border: 5px solid #5B8674 ;
   border-radius: 15px;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   margin-left:auto;
   margin-right: auto;
-  margin-top: 30px;
   padding: 1em;
+}
+
+#next{
+  background-color:#8BAF97;
+  transition: 0.2s ease, color 0.2s ease;
+  width: 100px;
+  height: 60px;
+  border: solid 3px #3E5B5E;
+  border-radius: 5px;
+  font-family: 'Acme', sans-serif;
+  font-size: 20px;
+  font-weight: 20;
+  color: white;
+  margin-top: 40px;
+}
+
+#next:hover{
+  background-color: white;
+  color:#8BAF97;
+  border: solid 3px #8BAF97;
+}
+
+#question-box{
+  font-family: 'Acme', sans-serif;
 }
