@@ -53,6 +53,7 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
+let userAnswers = [];
 
 const startBtn = document.getElementById("start");
 const nextBtn = document.getElementById("next");
@@ -73,6 +74,8 @@ nextBtn.addEventListener("click", () => {
     alert("Please select an answer before continuing.");
     return;
   }
+
+  userAnswers.push(selected.value);
 
   if (selected.value === questions[currentQuestion].answer) {
     score++;
@@ -107,4 +110,30 @@ function showResult() {
   quizContainer.style.display = "none";
   resultDiv.innerHTML = `🎉 You scored <strong>${score}</strong> out of <strong>${questions.length}</strong>!`;
   resultDiv.style.color = score >= 8 ? "green" : score >= 5 ? "orange" : "red";
+  showAnswersBtn.style.display = "inline-block";
 }
+
+const showAnswersBtn = document.getElementById("show-answers");
+const answerReview = document.getElementById("answer-review");
+
+showAnswersBtn.addEventListener("click", () => {
+  let reviewHTML = "<h3>Your Answers:</h3><ul style='text-align:left;'>";
+
+  questions.forEach((q, index) => {
+    const userAnswer = userAnswers[index];
+    const isCorrect = userAnswer === q.answer;
+
+    reviewHTML += `
+      <li>
+        <strong>Q${index + 1}:</strong> ${q.question}<br>
+        <span style="color:${isCorrect ? 'green' : 'red'};">
+          Your answer: ${userAnswer || "No answer selected"}
+        </span><br>
+        <span style="color:#3E5B5E;">Correct answer: ${q.answer}</span>
+      </li><br>
+    `;
+  });
+
+  reviewHTML += "</ul>";
+  answerReview.innerHTML = reviewHTML;
+});
