@@ -108,7 +108,8 @@ function showQuestion() {
 
 function showResult() {
   quizContainer.style.display = "none";
-  resultDiv.innerHTML = `🎉 You scored <strong>${score}</strong> out of <strong>${questions.length}</strong>!`;
+  resultDiv.style.display = "block"; 
+  document.getElementById("score-text").innerHTML = `🎉 You scored <strong>${score}</strong> out of <strong>${questions.length}</strong>!`;
   resultDiv.style.color = score >= 8 ? "green" : score >= 5 ? "orange" : "red";
   showAnswersBtn.style.display = "inline-block";
 }
@@ -117,23 +118,47 @@ const showAnswersBtn = document.getElementById("show-answers");
 const answerReview = document.getElementById("answer-review");
 
 showAnswersBtn.addEventListener("click", () => {
-  let reviewHTML = "<h3>Your Answers:</h3><ul style='text-align:left;'>";
+  if (answerReview.innerHTML === "") {
+    let reviewHTML = "<h3>Your Answers:</h3><ul style='text-align:left;'>";
 
-  questions.forEach((q, index) => {
-    const userAnswer = userAnswers[index];
-    const isCorrect = userAnswer === q.answer;
+    questions.forEach((q, index) => {
+      const userAnswer = userAnswers[index];
+      const isCorrect = userAnswer === q.answer;
 
-    reviewHTML += `
-      <li>
-        <strong>Q${index + 1}:</strong> ${q.question}<br>
-        <span style="color:${isCorrect ? 'green' : 'red'};">
-          Your answer: ${userAnswer || "No answer selected"}
-        </span><br>
-        <span style="color:#3E5B5E;">Correct answer: ${q.answer}</span>
-      </li><br>
-    `;
-  });
+      reviewHTML += `
+        <li>
+          <strong>Q${index + 1}:</strong> ${q.question}<br>
+          <span style="color:${isCorrect ? 'green' : 'red'};">
+            Your answer: ${userAnswer || "No answer selected"}
+          </span><br>
+          <span style="color:#3E5B5E;">Correct answer: ${q.answer}</span>
+        </li><br>
+      `;
+    });
 
-  reviewHTML += "</ul>";
-  answerReview.innerHTML = reviewHTML;
+    reviewHTML += "</ul>";
+    answerReview.innerHTML = reviewHTML;
+    showAnswersBtn.textContent = "Hide Answers";
+
+  } else {
+    answerReview.innerHTML = "";
+    showAnswersBtn.textContent = "Show Answers";
+  }
+});
+
+const tryAgainBtn = document.getElementById("try-again");
+
+tryAgainBtn.addEventListener("click", () => {
+  currentQuestion = 0;
+  score = 0;
+  userAnswers = [];
+
+  resultDiv.style.display = "none";
+  answerReview.innerHTML = "";
+  showAnswersBtn.textContent = "Show Answers";
+  showAnswersBtn.style.display = "none";
+
+  quizContainer.style.display = "block";
+
+  showQuestion();
 });
